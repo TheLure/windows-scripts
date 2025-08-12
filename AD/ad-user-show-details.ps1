@@ -1,14 +1,14 @@
 #
 # Andreas Larsson 2024
 #
-# Basic script to search AD for a user on via current maching.
+# Basic script to search AD for a user on via current machine.
 # The string entered is matched against properties sAMAccountName or userprincipalname.
 #
 # Usage:
 # Supply the username via argument or enter it in the prompt.
 # Add the "-details" flag to show ALL properties.
 #
-# Example uses in a powershell window:
+# Example use in a powershell window:
 #
 # ./ad-user-show-details.ps1 someusername
 # ./ad-user-show-details.ps1 someemail

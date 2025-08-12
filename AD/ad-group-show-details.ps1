@@ -1,3 +1,21 @@
+#
+# Andreas Larsson 2024
+#
+# Basic script to search AD for a group via current machine.
+#
+# Usage:
+# Supply the group name via argument or enter it in the prompt.
+# Add the "-details" flag to show ALL properties.
+#
+# Example use in a powershell window:
+#
+# ./ad-group-show-details.ps1 somegroup
+#
+# or
+#
+# ./ad-group-show-details.ps1 somegroup -details
+#
+
 param (
     [Parameter(Mandatory=$false)]
     [string]$Group,
