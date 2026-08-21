@@ -20,7 +20,9 @@ param (
     [Parameter(Mandatory=$false)]
     [string]$Group,
     [Parameter(Mandatory=$false)]
-    [switch]$Details    
+    [switch]$Details,
+    [Parameter(Mandatory=$false)]
+    [switch]$Short
 )
 
 $wasPrompted = $false
@@ -33,7 +35,12 @@ $searcher = [adsisearcher]""
 $searcher.Filter = "(&(objectClass=group)(cn=$Group))"
 $searchResults = $searcher.FindAll()
 
-$allowedProperties = @("distinguishedname", "member", "memberof")
+if ($Short) {
+    $allowedProperties = @("distinguishedname")
+} else {
+    $allowedProperties = @("distinguishedname", "member", "memberof")
+}
+
 
 foreach ($result in $searchResults) {
     $sortedPropertyNames = $result.Properties.PropertyNames | Sort-Object
